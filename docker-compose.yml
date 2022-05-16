@@ -1,12 +1,15 @@
 version: '3'
-
 services:
-  servidorweb:
-    image: webdevops/php-apache
-    container_name: servidorweb3
-    volumes:
-      - ./app:/app
-    ports:
-      - 85:80
+
+  servidordb2:
+      image: mariadb:10.7.1
+      container_name: servidordb3
+      environment:
+        - MYSQL_ROOT_PASSWORD=goku333
+      volumes:
+        - ./db:/var/lib/mysql
+        - ./db_config:/etc/mysql/conf.d
+      ports:
+        - 3336:3306
 
     
